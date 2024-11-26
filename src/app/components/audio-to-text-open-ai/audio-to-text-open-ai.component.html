@@ -1,0 +1,33 @@
+<article class="p-5">
+  <h2 class="vk-h5 pb-3">Using Open AI</h2>
+  <div>
+    <input type="file" (change)="onFileChange($event)" accept="audio/*" />
+    <button
+      class="vk-btn-red"
+      (click)="transcribe()"
+      [disabled]="loading || !audioFile"
+    >
+      <span class="flex items-center">
+        @if(loading){
+        <span class="me-2">
+          <img
+            src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+            alt="Loader"
+            class="size-5"
+          />
+        </span>
+        } Convert to text
+      </span>
+    </button>
+  </div>
+
+  <div *ngIf="transcribedText">
+    <p><strong>Text : </strong>{{ transcribedText }}</p>
+  </div>
+
+  <div *ngIf="audioUrl">
+    <p>
+      <strong>Audio : </strong><audio src="{{ audioUrl }}" controls></audio>
+    </p>
+  </div>
+</article>

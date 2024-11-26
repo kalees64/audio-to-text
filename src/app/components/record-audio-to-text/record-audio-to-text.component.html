@@ -1,0 +1,57 @@
+<article class="p-5">
+  <h2 class="vk-h5 pb-3">Record audio and covert into text</h2>
+  <div class="flex gap-2">
+    <button (click)="startRecording()" class="vk-btn-blue" *ngIf="!isRecording">
+      Start Recording
+    </button>
+    <button
+      (click)="stopRecording()"
+      class="vk-btn-red"
+      [disabled]="!isRecording"
+      *ngIf="isRecording"
+    >
+      Stop Recording
+    </button>
+    <button
+      class="vk-btn-pink"
+      (click)="uploadAudio()"
+      [disabled]="!localAudioFileUrl()"
+      *ngIf="localAudioFileUrl()"
+    >
+      <span class="flex items-center">
+        @if(loading){
+        <span class="me-2">
+          <img
+            src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+            alt="Loader"
+            class="size-5"
+          />
+        </span>
+        } Convert to text
+      </span>
+    </button>
+  </div>
+  <div *ngIf="isRecording">
+    <img
+      src="https://media.tenor.com/dHpPBNmAtl0AAAAi/waves.gif"
+      alt="recording"
+      class="w-44"
+    />
+  </div>
+  <div *ngIf="localAudioFileUrl()">
+    <h1 class="vk-h6">Before Upload</h1>
+    <p *ngIf="localAudioFileUrl">
+      <strong>Audio: </strong
+      ><audio [src]="localAudioFileUrl()" controls></audio>
+    </p>
+  </div>
+  <div *ngIf="transcription || audioUrl">
+    <h1 class="vk-h6">After Upload</h1>
+    <p *ngIf="transcription">
+      <strong>Transcription: </strong>{{ transcription }}
+    </p>
+    <p *ngIf="audioUrl">
+      <strong>Audio: </strong><audio src="{{ audioUrl }}" controls></audio>
+    </p>
+  </div>
+</article>

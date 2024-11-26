@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://kalees64.github.io/vk-cdn/vk-cdn.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

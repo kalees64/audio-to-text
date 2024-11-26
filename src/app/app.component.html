@@ -1,0 +1,37 @@
+<main class="p-5">
+  <h2 class="text-xl font-bold pb-3">Upload an Audio File</h2>
+  <input type="file" accept="audio/*" (change)="onFileSelected($event)" />
+  <button
+    [disabled]="!selectedFile || loading"
+    (click)="uploadFile()"
+    class="vk-btn-blue"
+  >
+    <span class="flex items-center">
+      @if(loading){
+      <span class="me-2">
+        <img
+          src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+          alt="Loader"
+          class="size-5"
+        />
+      </span>
+      } Convert to text
+    </span>
+  </button>
+  <!-- <p *ngIf="audioFileLink">
+  <strong>Audio File Link:</strong> {{ audioFileLink }}
+</p>
+<audio *ngIf="audioFileLink" [src]="audioFileLink" controls></audio> -->
+
+  @if(text){
+  <p><strong>Text : </strong>{{ text }}</p>
+  }
+</main>
+
+<section>
+  <app-audio-to-text-open-ai></app-audio-to-text-open-ai>
+</section>
+
+<section>
+  <app-record-audio-to-text></app-record-audio-to-text>
+</section>
