@@ -6,15 +6,12 @@ import { environment } from '../environments/environment.development';
 import { HomeComponent } from './components/home/home.component';
 import { RecordAudioToTextComponent } from './components/record-audio-to-text/record-audio-to-text.component';
 import { AudioToTextOpenAiComponent } from './components/audio-to-text-open-ai/audio-to-text-open-ai.component';
+import { RecordAudioToTextAssemblyAiComponent } from './components/record-audio-to-text-assembly-ai/record-audio-to-text-assembly-ai.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    RecordAudioToTextComponent,
-    AudioToTextOpenAiComponent,
-  ],
+  imports: [CommonModule, RecordAudioToTextAssemblyAiComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

@@ -1,4 +1,4 @@
-<main class="p-5">
+<!-- <main class="p-5">
   <h2 class="text-xl font-bold pb-3">Upload an Audio File</h2>
   <input type="file" accept="audio/*" (change)="onFileSelected($event)" />
   <button
@@ -17,13 +17,13 @@
       </span>
       } Convert to text
     </span>
-  </button>
-  <!-- <p *ngIf="audioFileLink">
+  </button> -->
+<!-- <p *ngIf="audioFileLink">
   <strong>Audio File Link:</strong> {{ audioFileLink }}
 </p>
 <audio *ngIf="audioFileLink" [src]="audioFileLink" controls></audio> -->
 
-  @if(text){
+<!-- @if(text){
   <p><strong>Text : </strong>{{ text }}</p>
   }
 </main>
@@ -34,4 +34,8 @@
 
 <section>
   <app-record-audio-to-text></app-record-audio-to-text>
+</section> -->
+
+<section>
+  <app-record-audio-to-text-assembly-ai></app-record-audio-to-text-assembly-ai>
 </section>

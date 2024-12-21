@@ -1,0 +1,62 @@
+<article class="p-5">
+  <h2 class="vk-h5 pb-3">Record audio and covert into text ASSEMBLY AI</h2>
+  <div class="flex gap-2">
+    <button
+      (click)="startRecording()"
+      class="vk-btn-blue flex gap-2 items-center"
+      *ngIf="!isRecording"
+    >
+      <span
+        class="icon-[line-md--play-filled]"
+        style="width: 24px; height: 24px"
+      ></span>
+      Start Recording
+    </button>
+    <button
+      (click)="stopRecording()"
+      class="vk-btn-red flex gap-2 items-center"
+      [disabled]="!isRecording"
+      *ngIf="isRecording"
+    >
+      <span
+        class="icon-[material-symbols--stop]"
+        style="width: 24px; height: 24px"
+      ></span>
+      Stop Recording
+    </button>
+    <button
+      class="vk-btn-pink"
+      (click)="uploadAudio()"
+      [disabled]="!localAudioFileUrl()"
+      *ngIf="localAudioFileUrl()"
+    >
+      <span class="flex items-center">
+        <span
+          class="icon-[simple-icons--convertio] me-2 {{
+            loading ? 'animate-spin' : ''
+          }}"
+          style="width: 24px; height: 24px"
+        ></span
+        >Convert to text
+      </span>
+    </button>
+  </div>
+  <div *ngIf="isRecording">
+    <img
+      src="https://media.tenor.com/dHpPBNmAtl0AAAAi/waves.gif"
+      alt="recording"
+      class="w-44"
+    />
+  </div>
+  <div *ngIf="localAudioFileUrl()">
+    <p *ngIf="localAudioFileUrl">
+      <strong>Audio: </strong
+      ><audio [src]="localAudioFileUrl()" controls></audio>
+    </p>
+  </div>
+  <div *ngIf="transcription">
+    <p *ngIf="transcription">
+      <strong>Transcription: </strong>{{ transcription }}
+    </p>
+  </div>
+</article>
